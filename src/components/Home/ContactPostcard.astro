@@ -1,0 +1,124 @@
+<section class='postcard'>
+    <div class='postcard-contents'>
+        <div class="postcard-left">
+            <p class="wish-here">Wish you were here!</p>
+            <p class="contact-intro">If you have something to say, I'd love to hear from you. Find me online:</p>
+            <ul class="contact-list">
+                <li><a href="https://twitter.com/_bradleyt">Twitter</a></li>
+                <li><a href="https://github.com/braders/">Github</a></li>
+                <li><a href="www.linkedin.com/in/bradley-taylor-6b260199">LinkedIn</a></li>
+                <li>hello@brad-taylor.co.uk</li>
+            </ul>
+            
+        </div>
+        <div class='postcard-right'>
+            <div class='postmark'>
+                <img src="assets/postmark.svg" alt="">
+            </div>
+            <div class='address-lines'></div>
+        </div>
+    </div>
+</section>
+
+<style>
+.postcard {
+    background-color: white;
+    max-width: 820px;
+    margin: 1rem auto 8rem;
+    box-shadow: 1px 1px 2px #424242;
+}
+.postcard-contents {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 55% 45%;
+    grid-gap: 1rem;
+}
+.postcard::before {
+    content: "\00a0";
+    display: block;
+    height: 1.6rem;
+    width: 100%;
+    background-image: repeating-linear-gradient(
+        -45deg,
+        #fff 0 12.5%,
+        #de7983 12.5% 37.5%,
+        #fff 37.5% 62.5%,
+        #81a0cf 62.5% 87.5%,
+        #fff 87.5% 100%
+    );
+    background: repeating-linear-gradient(
+    -45deg,
+    #de7983,
+    #de7983 15px,
+    #fff 15px,
+    #fff 30px,
+    #81a0cf 30px,
+    #81a0cf 45px,
+    #fff 45px,
+    #fff 60px
+  );
+}
+
+.postcard-left {
+    padding-right: 1rem;
+}
+.postcard-right {
+    position: relative;
+    padding: 2rem;
+    padding-left: 4rem;
+    border-left: 2px solid #7d7e82;
+}
+.postmark {
+    float: right;
+    width: 110px;
+    height: 130px;
+    border: 2px solid #7d7e82;
+    margin-bottom: 60px;
+    position: relative;
+}
+.postmark img {
+    position: absolute;
+    left: 0;
+    width: 140px;
+    top: 0;
+    transform: translate(-50%, 50%) rotate(-4deg);
+    opacity: 0.3;
+}
+
+.address-lines {
+    height: 12rem;
+    clear: both;
+    background-image: repeating-linear-gradient(transparent, black 2px, transparent 2px, transparent 50px);
+}
+
+.wish-here {
+    font-family: 'Lobster', sans-serif;
+    font-size: 4rem;
+    margin: 2.6rem 0 6rem;
+    transform: rotate(-8deg);
+}
+.contact-intro {
+    font-size: 2rem;
+    line-height: 1.4;
+    margin-bottom: 2rem;
+}
+.contact-list {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+.contact-list li {
+    margin-bottom: 1.4rem;
+    position: relative;
+    padding-left: 2rem;
+}
+.contact-list li::before {
+    content: "~";
+    position: absolute;
+    left: 0;
+    transform: rotate(-15deg);
+    color: #b75962;
+}
+.contact-list a {
+    color: #b75962;
+}
+</style>

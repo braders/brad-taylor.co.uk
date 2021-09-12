@@ -6,52 +6,67 @@ export interface Props {
 const { post } = Astro.props;
 ---
 <article class="post-preview">
-  <header>
-    <h3 class="publish-date">{post.publishDate}</h3>
-    <a href={post.url}><h1 class="title">{post.title}</h1></a>
-  </header>
-  <main>
-    <p>{post.description}</p>
-    <a href={post.url}>Read more</a>
-  </main>
+    <div class='post-meta'>
+        <p class="publish-date">{post.publishDate}</p>
+        {post.external ? <p class='post-external'>External Post</p> : null}
+    </div>
+
+    <a href={post.external ? post.external : post.url} class='post-title'>{post.title}</a>
+    <p class='post-desc'>{post.description}</p>
 </article>
 
 <style>
-.content :global(main > * + *) {
-  margin-top: 1rem;
-}
-
 .post-preview {
-  padding-bottom: 2rem;
-  margin-bottom: 2rem;
-  border-bottom: 4px solid var(--theme-divider);
+    background: #fff3ca;
+    padding: 2.5rem;
+    position: relative;
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px #b3ac8a;
+    transition: 0.1s ease;
+}
+.post-preview:hover {
+    transform: scale(1.02) translateY(-4px);
+}
+.post-title {
+    font-size: 3rem;
+    font-weight: bold;
+    color: inherit;
+    text-decoration: none;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+    display: inline-block;
+}
+.post-title::after {
+    content: "\00a0";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+}
+.post-desc {
+    font-size: 1.6rem;
+    line-height: 1.4;
 }
 
-header {
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-  align-items: flex-start;
-  justify-content: center;
-
-  padding-bottom: 2rem;
+.post-meta {
+    margin-bottom: 1rem;
 }
-
-.title,
-.author,
-.publish-date {
-  margin: 0;
-}
-
 .publish-date,
-.author {
-  font-size: 1.25rem;
-  color: var(--theme-text-lighter);
+.post-external {
+    display: inline-block;
+    font-size: 1.4rem;
 }
-
-.title {
-  font-size: 2.25rem;
-  font-weight: 700;
-  color: var(--theme-text);
+.publish-date + .post-external::before {
+    content: "\00a0";
+    background: currentColor;
+    border-radius: 50%;
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    margin: 0 6px;
+    position: relative;
+    top: 4px;
+    color: #333;
 }
 </style>

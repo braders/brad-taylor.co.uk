@@ -1,0 +1,35 @@
+---
+import BlogPostPreview from '../BlogPostPreview.astro';
+
+export interface Props {
+  allPosts: [];
+}
+
+const { allPosts } = Astro.props;
+---
+<section>
+    <h2 class='blog-title'>My latest posts from around the web</h2>
+    <div class='posts-container'>
+        {allPosts.map(p => <BlogPostPreview post={p} />)}
+    </div>
+</section>
+
+<style>
+section {
+    padding: 6rem 0;
+}
+.blog-title {
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 6rem;
+}
+.posts-container {
+    max-width: 900px;
+    padding: 0 2rem;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-gap: 4rem;
+}
+</style>
