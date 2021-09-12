@@ -1,4 +1,5 @@
 <nav>
+    <a href="/" class='logomark'>Bradley Taylor</a>
     <ul>
         <li>
             <a href='/about'>About</a>
@@ -20,14 +21,15 @@
 
 <style>
 nav {
-    position: absolute;
-    right: 0;
-    top: 0;
     padding-top: 30px;
-    padding-right: 30px;
 }
 nav ul {
     list-style: none;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 1rem;
 }
 nav li {
     display: inline-block;
@@ -44,5 +46,26 @@ nav a {
 nav a:hover,
 nav a:focus {
     border-bottom: 2px solid white;
+}
+
+nav .logomark {
+    font-family: 'Lobster', sans-serif;
+    font-size: 3rem;
+    margin-left: 3rem;
+}
+
+@media (min-width: 800px) {
+    nav { 
+        display: block;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        padding-right: 30px;
+    }
+    nav ul {
+        float: right;
+        display: block;
+    }
 }
 </style>

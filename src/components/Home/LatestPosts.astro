@@ -7,7 +7,7 @@ export interface Props {
 
 const { allPosts } = Astro.props;
 ---
-<section>
+<section id="posts">
     <h2 class='blog-title'>My latest posts from around the web</h2>
     <div class='posts-container'>
         {allPosts.map(p => <BlogPostPreview post={p} />)}
@@ -22,14 +22,20 @@ section {
     text-align: center;
     font-size: 3rem;
     margin-bottom: 6rem;
+    padding: 0 2rem;
 }
 .posts-container {
-    max-width: 900px;
     padding: 0 2rem;
-    margin: 0 auto;
+}
 
-    display: grid;
-    grid-template-columns: 50% 50%;
-    grid-gap: 4rem;
+@media (min-width: 800px) {
+    .posts-container {
+        max-width: 900px;
+        margin: 0 auto;
+
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-gap: 4rem;
+    }
 }
 </style>
