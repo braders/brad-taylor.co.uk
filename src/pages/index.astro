@@ -24,7 +24,10 @@ allPosts = allPosts.sort((a, b) => new Date(b.publishDate) - new Date(a.publishD
 	</head>
 
 	<body>
-		<Header />
+		<Header>
+            <h1>Hi, I'm <strong>Bradley</strong></h1>
+            <p>I build high-quality web experiences that are performant, accessible and pleasing.</p>
+        </Header>
 		<div class='sand'>
 			<LastestPosts allPosts={allPosts} />
             <ContactPostcode />
