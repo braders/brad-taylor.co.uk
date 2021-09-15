@@ -5,6 +5,8 @@ import Header from '../components/Home/Header.astro';
 import LastestPosts from '../components/Home/LatestPosts.astro';
 import ContactPostcode from '../components/Home/ContactPostcard.astro';
 
+import WaveRenderer from '../components/Client/WaveRenderer.jsx';
+
 
 // Component Script:
 // You can write any JavaScript/TypeScript that you'd like here.
@@ -28,6 +30,7 @@ allPosts = allPosts.sort((a, b) => new Date(b.publishDate) - new Date(a.publishD
             <h1>Hi, I'm <strong>Bradley</strong></h1>
             <p>I build high-quality web experiences that are performant, accessible and pleasing.</p>
         </Header>
+		<WaveRenderer client:only />
 		<div class='sand'>
 			<LastestPosts allPosts={allPosts} />
             <ContactPostcode />
